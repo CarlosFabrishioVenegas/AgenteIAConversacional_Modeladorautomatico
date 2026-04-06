@@ -1,0 +1,57 @@
+project:
+  name: "Propensión de Compra — Ferreycorp"
+  version: "1.0.0"
+  random_state: 42
+
+paths:
+  data_raw: "data/raw/compras_data.csv"
+  data_processed: "data/processed/compras_clean.parquet"
+  predictions: "outputs/predictions/predicciones.parquet"
+  feactures_importance: "outputs/feature_importance/feature_importance.csv"
+  model_dir: "models/trained"
+  metrics_dir: "outputs/metrics"
+  reports_dir: "outputs/reports"
+  images_dir: "outputs/reports/images"
+
+data:
+  target: "incidencia_compra"
+  exclude_cols:
+    - "tamanio_ciudad"
+  id_col: "id"
+  test_size: 0.2
+  cv_folds: 5
+  val_size: 0.2
+
+clustering:
+  features:
+    - "edad"
+    - "ingreso_anual"
+    - "genero"
+    - "estado_civil"
+    - "nivel_educacion"
+    - "ocupacion"
+    - "ultima_marca_comprada"
+    - "ultima_cantidad_comprada"
+  n_clusters: null   # null = auto por Silhouette (rango 2-6)
+  k_range: [2, 6]
+
+outliers:
+  method: "isolation_forest"   # isolation_forest | iqr
+  contamination: 0.05
+  treatment: "winsorize"       # winsorize | remove | none
+  continuous_cols:
+    - "cantidad"
+    - "ultima_cantidad_comprada"
+    - "precio_marca_1"
+    - "precio_marca_2"
+    - "precio_marca_3"
+    - "precio_marca_4"
+    - "precio_marca_5"
+    - "edad"
+    - "ingreso_anual"
+
+agent:
+  model: "claude-sonnet-4-6"
+  max_tokens: 1024
+  feedback_file: "outputs/agent_feedback.jsonl"
+  high_propensity_threshold: 0.6
