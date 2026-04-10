@@ -295,7 +295,7 @@ def responder(user_input: str) -> str:
 
 BANNER = """
 ╔══════════════════════════════════════════════════════════════════╗
-║      🛒  AGENTE DE PROPENSIÓN DE COMPRA — Ferreycorp             ║
+║      🛒  AGENTE DE PROPENSIÓN DE COMPRA                          ║
 ║                                                                  ║
 ║  Ejemplos:                                                       ║
 ║  • ¿Cuántos clientes tienen prob > 70%?                          ║

@@ -46,7 +46,7 @@ def separador(titulo: str):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Pipeline de Propensión de Compra — Ferreycorp")
+    parser = argparse.ArgumentParser(description="Pipeline de Propensión de Compra")
     parser.add_argument("--data",    type=str, default=None, help="Ruta al CSV de datos (override config)")
     parser.add_argument("--tune",    action="store_true",    help="Activar fine-tuning con RandomizedSearchCV")
     parser.add_argument("--no-shap", action="store_true",    help="Omitir cálculo de SHAP values")

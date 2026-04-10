@@ -1,4 +1,4 @@
-# Modelo de Propensión de Compra — Ferreycorp
+# Modelo de Propensión de Compra
 
 ## Descripción
 Pipeline de Machine Learning para predecir si un cliente comprará o no un producto,

@@ -1,5 +1,5 @@
 project:
-  name: "Propensión de Compra — Ferreycorp"
+  name: "Propensión de Compras"
   version: "1.0.0"
   random_state: 42
 
